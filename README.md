@@ -1,13 +1,122 @@
-git init - initialization repo
+1. Java Core (Фундамент)
+   Здесь важно не просто знать теорию, а уметь применять её в коде.
 
-git add .                    # all files
-git add src/                 # only src directory
-git add MyClass.java         # specific file
+1.1. Синтаксис и основы
 
-git commit -m "description of the commit" - save changes on local repo
-git status - check repository status
-git log - check logs
-git remote add origin https://github.com/username/repository-name.git - bind local repo and remote repo
-git branch -M main - rename current branch
-git push -u origin main - send changes on remote repo
-git pull origin main - get changes from remote repo
+Задача: Написать программу, которая читает данные из консоли (Scanner), выполняет простые вычисления и выводит результат.
+Задача: Использовать все основные операторы (if-else, switch, for, while, do-while). Например, реализовать простой калькулятор или поиск простых чисел в диапазоне.
+Задача: Понимать и использовать var (Local-Variable Type Inference) с Java 10+.
+
+1.2. Классы и Объекты (ООП)
+
+Задача: Создать иерархию классов. Классический пример: Animal -> Cat, Dog. Реализовать полиморфизм (переопределить метод makeSound()).
+Задача: Реализовать класс Employee с полями (id, name, salary), конструкторами, геттерами/сеттерами, переопределить toString(), equals() и hashCode().
+Задача: Понять разницу между композицией и агрегацией. Создать класс Engine и класс Car, который содержит Engine.
+
+1.3. Исключения (Exceptions)
+
+Задача: Написать метод, который бросает кастомное unchecked-исключение (например, InvalidAgeException).
+Задача: Написать код, который читает файл, и корректно обрабатывает FileNotFoundException и IOException с помощью try-with-resources.
+
+1.4. Коллекции (Collections Framework)
+
+ArrayList vs LinkedList: Написать бенчмарк (простой замер времени) для добавления/удаления элементов в начале, середине и конце списка. Объяснить разницу на собеседовании.
+HashMap: Реализовать простой кэш на основе HashMap. Например, кэшировать результаты тяжелой функции. Понимать, что такое хэш-функция и коллизии.
+HashSet: Написать метод, который удаляет дубликаты из List, используя HashSet.
+Iterator/Iterable: Реализовать свой простой класс, реализующий Iterable (например, класс Box, который хранит набор объектов и позволяет их перебирать).
+Сортировка: Отсортировать список Employee по зарплате, используя Comparator и Comparable.
+
+1.5. Stream API
+
+Задача: Имея список Employee, отфильтровать сотрудников с зарплатой выше среднего, отсортировать по имени и собрать в новый список.
+Задача: Использовать операции map, filter, reduce, collect (с Collectors.groupingBy, Collectors.toMap). Например, сгруппировать сотрудников по департаменту.
+
+1.6. Многопоточность (Multithreading)
+
+Задача: Создать и запустить поток двумя способами: наследование от Thread и реализация интерфейса Runnable.
+Задача: Реализовать проблему "Производитель-Потребитель" (Producer-Consumer) с использованием synchronized, wait() и notify().
+Задача: Использовать ExecutorService для выполнения задач в пуле потоков.
+Задача: Понять и применить ключевое слово volatile для флага остановки потока.
+1.7. Работа с датами и временем (Java Time API)
+
+Задача: Парсить строку в LocalDate и LocalDateTime.
+Задача: Вычислить разницу между двумя датами с помощью Period и Duration.
+
+2. Система сборки и управление зависимостями
+   Maven/Gradle: Обязательно знание одного из них.
+
+Задача: Создать с нуля проект на Maven/Gradle, добавить необходимые зависимости (например, JUnit, Logback), собрать его в JAR-файл.
+Задача: Понимать структуру pom.xml / build.gradle.
+
+3. Тестирование (Testing)
+   JUnit 5/JUnit 4: Написать unit-тесты для сервисного класса, например, CalculatorService.
+
+Задача: Использовать аннотации @Test, @BeforeEach, @AfterEach.
+Задача: Использовать assertions (assertEquals, assertTrue, assertThrows).
+Задача: Написать тест, который проверяет, что метод бросает ожидаемое исключение.
+
+4. Работа с базами данных (JDBC и SQL)
+   SQL: Уметь писать базовые запросы: SELECT, INSERT, UPDATE, DELETE, JOIN (INNER, LEFT).
+
+Задача: Написать консольное приложение (CRUD) для работы с таблицей users. Использовать JDBC для подключения к H2/PostgreSQL/MySQL.
+Задача: Реализовать паттерн DAO (Data Access Object) для абстракции работы с базой данных. Например, интерфейс UserDao и его реализация JdbcUserDao.
+Задача: Правильно закрывать ресурсы (использовать try-with-resources).
+
+5. Spring Framework (Базовый уровень)
+   Это must-have для 99% вакансий.
+
+5.1. Spring Core & Context
+
+Задача: Понимать, что такое IoC (Inversion of Control) и DI (Dependency Injection).
+Задача: Создать простейшее приложение с конфигурацией через аннотации (@Component, @Service, @Autowired, @Configuration).
+
+5.2. Spring Boot
+
+Задача: Используя Spring Initializr, создать простое RESTful веб-приложение, которое возвращает "Hello, World!".
+Задача: Настроить основные параметры в application.properties/application.yml.
+
+5.3. Spring MVC
+
+Задача: Создать REST-контроллер с методами, обрабатывающими GET, POST, PUT, DELETE запросы.
+Задача: Работа с параметрами запроса: @PathVariable, @RequestParam, @RequestBody.
+
+5.4. Spring Data JPA
+
+Задача: Создать сущность (@Entity) User и репозиторий (interface UserRepository extends JpaRepository<User, Long>).
+Задача: Реализовать CRUD-операции для сущности User с помощью Spring Data JPA. Написать несколько кастомных запросов с помощью @Query.
+
+6. Веб-технологии (HTTP, REST, JSON)
+   Задача: Понимать структуру HTTP-запроса и ответа (методы, статусы, заголовки).
+
+Задача: Вручную (через Postman/Insomnia) протестировать свои REST-эндпоинты.
+Задача: Уметь сериализовать/десериализовать объекты в JSON и обратно (Spring делает это автоматически, но понимать процесс нужно).
+
+7. Система контроля версий (Git)
+   Задача: Создать репозиторий на GitHub/GitLab для своего учебного проекта.
+
+Задача: Выполнять основные команды: clone, add, commit, push, pull, branch, merge, status, log.
+Задача: Создать пул-реквест (merge request) из feature-ветки в main.
+
+8. Инструменты и практики
+   Логирование: Настроить и использовать SLF4J + Logback в своем Spring Boot приложении. Добавить логи разного уровня (INFO, DEBUG, ERROR).
+
+Docker (Базовое понимание): Уметь запускать базу данных (PostgreSQL) в Docker-контейнере и подключать к ней своё приложение.
+Итоговый проект, который объединит всё вышеперечное
+"Управление задачами" (Task Manager) или "Блог-платформа"
+Это должен быть REST API Backend на Spring Boot.
+
+Функциональность:
+Сущности: User, Task (или Post).
+
+API:
+GET /api/users - получить всех пользователей.
+POST /api/users - создать нового пользователя.
+GET /api/tasks - получить все задачи (с пагинацией!).
+POST /api/tasks - создать задачу (с привязкой к пользователю).
+PUT /api/tasks/{id} - обновить задачу.
+DELETE /api/tasks/{id} - удалить задачу.
+База данных: Использовать Spring Data JPA + PostgreSQL (в Docker).
+Логирование: Добавить логи для основных операций.
+Тесты: Написать несколько unit-тестов для сервисного слоя.
+Git: Весь код должен быть в Git-репозитории с вменяемыми коммитами.
+
